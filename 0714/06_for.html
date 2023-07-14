@@ -22,6 +22,18 @@
         }
     }
 
+    // 홀수 단만 
+    for (var i = 1; i <= 9; i++) {
+    if (i % 2 == 0) { // 짝수만 : (i % 2 == 1)
+      continue; // 짝수단인 경우 다음 반복으로 건너뜁니다.
+    }
+
+    document.write(i + "단" + "<br>");
+
+    for (var j = 1; j <= 9; j++) {
+      document.write(i + "*" + j + " = " + i*j+ "<br>");
+    }
+  }
     </script>
 </head>
 <body>
