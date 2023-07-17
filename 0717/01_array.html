@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 배열 길이(크기)
+        var varArr = new Array(0, 1, 2, 3, 4, 5);
+        document.write("varArr.length : " + varArr.length + "<br>");
+
+        varArr = ['사과', '오렌지', '포도']
+
+        for (let i = 0; i < array.length; index++) { // 일반 for 
+            document.write(varArr[i]);
+        
+        }
+        for (let num in varArr) { // for in (let : var과 같음)
+             document.write(num);
+        
+         }
+
+        // array.forEach(element => { // for each 
+            // 콜백 함수 
+        // });
+
+        var varArrTemp = new Array(100);
+        document.write("varArrTemp.length : " + varArrTemp.length);
+
+        
+
+        //shift(), pop();
+        var varArrShiftPop = new Array("가", "나", "다", "라", "마");
+        console.log("varArrShiftPop.shift() : " + varArrShiftPop.shift());
+        console.log("varArrShiftPop : " + varArrShiftPop);
+        
+        console.log("varArrShiftPop.pop() : " + varArrShiftPop.pop());
+        console.log("varArrShiftPop : " + varArrShiftPop);
+        
+        varArrShiftPop.unshift("가");
+        varArrShiftPop[varArrShiftPop.length] = "마";
+        console.log("varArrShiftPopOri : " + varArrShiftPop);
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

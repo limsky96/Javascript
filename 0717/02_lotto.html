@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 로또
+        var lotto = []; // new Array(6);
+
+        while(lotto.length < 6){
+            var num = Math.floor(Math.random()*45)+1;
+            if(lotto.indexOf(num) < 0){ //중복제거 -1;
+                lotto.push(num); // push : 중복되는 숫자 없으면 그냥 집어 넣으면 끝~
+            }
+        }
+
+        document.write("이번주 당첨 숫자는 " + lotto.sort())
+       
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
