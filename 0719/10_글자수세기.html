@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>글자수 세기</h3>
+    <textarea id="inputText" rows="20" cols="25" style="border: 2px solid blue";></textarea>
+    <p>입력 문자 수: <span id="charCount">0</span></p>
+
+    <script>
+        // textarea 입력이 변경될 때마다 글자 수를 세는 함수
+        function countChar() {
+            const inputText = document.getElementById("inputText").value;
+            const charCount = document.getElementById("charCount");
+
+            // 입력된 글자 수를 세서 화면에 출력
+            charCount.textContent = inputText.length;
+        }
+
+        // textarea 입력이 변경될 때마다 count함수 호출
+        document.getElementById("inputText").addEventListener("input", countChar);
+    </script>
+</body>
+</html>

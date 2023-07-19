@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+        window.onload = function(){
+        // onload 안 할거면 바디 아래로 넣기 ~
+        // html이 읽을 때 위에서부터 내려오면서 읽어들임 -> document.body~에서 body가 객체가 null인 상황에 body 태그를 읽었을 때 올라간 메모리가 없음 
+        var str = "";
+        str += "<p id='jsTitle'> javascript & node.js </p>";
+        str += "<img id='logoImg' src='logo.png' ";
+        str += "width='170' height='67' tempData='logoImg'>";
+            
+        document.body.innerHTML = str; // 이걸 빼먹으면 아래 코드가 안 먹음 !
+            
+        var titleNode = document.getElementById("jsTitle");
+        //titleNode.parentNode.removeChild(titleNode); // 동적으로 delete 하는 것 
+        titleNode.style.fontSize = "1.2em";
+        titleNode.style.border = "1px solid #ff0000";
+
+        var logoNode = document.getElementById("logoImg");
+        //logoNode.parentNode.removeChild(logoNode); 
+        logoNode.style.width = "170px";
+        logoNode.style.height = "67px";
+        
+        
+        };
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

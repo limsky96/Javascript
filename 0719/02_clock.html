@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <script> // 강사 버전 
+        window.onload = function(){
+
+            function setClock(){
+                var date = new Date();
+                var hour = date.getHours();
+                var min = date.getMinutes();
+                var sec = date.getSeconds();
+
+                document.body.innerHTML = hour + ":" + min + ":" + sec;
+            }
+            setInterval(setClock, 1000);
+        }
+
+
+    </script> -->
+
+</head>
+<body>
+    <h1 id="clock"></h1>
+    
+    <script> 
+        // 실시간 시계
+
+        // 타이머
+        // 날짜를 표현하는 객체
+        // 디스플레이를 위한 document 객체
+        function clock() {
+            var clockElement = document.getElementById("clock");
+            var date = new Date();
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+
+            // 시, 분, 초를 2자리 숫자로 표시하도록 조정
+            hour = (hour < 10 ? "0" : "") + hour;
+            min = (min < 10 ? "0" : "") + min;
+            sec = (sec < 10 ? "0" : "") + sec;
+
+            // 시계 텍스트 업데이트
+            clockElement.textContent = hour + ":" + min + ":" + sec;
+        }
+
+        // 페이지 로드 시 시계 업데이트
+        clock();
+
+        // 1초마다 시계 업데이트
+        setInterval(clock, 1000);
+
+        // 큰 스크립트 파일이거나 페이지의 시각적인 표시를 빠르게 보여주는 것이 중요한 경우에는 <body> 요소 내에 스크립트를 넣는 것이 좋다.
+
+
+    </script>
+</body>
+</html>

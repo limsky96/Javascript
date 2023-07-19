@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        window.onload = function(){
+        var str = "";
+        str += "<p id='jsTitle'> javascript & node.js </p>";
+        str += "<img id='logoImg' src='logo.png' ";
+        str += "width='170' height='67' tempData='logoImg'>";
+            
+        document.body.innerHTML = str; // 이걸 빼먹으면 아래 코드가 안 먹음 !
+            
+        var titleNode = document.getElementById("jsTitle");
+        titleNode.innerHTML = "안녕하세요"; // 이걸 바꾸면 위에 p태그가 내용 같이 바뀜 
+            
+        var logoNode = document.getElementById("logoImg");
+        logoNode.setAttribute("src", "arm_mbed.png");
+        logoNode.setAttribute("width", 297);
+        logoNode.setAttribute("height", 124);
+        };
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #cEvent
+        {
+            width: 200px; height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 1.2em;
+            background-color: #f00;
+            color: #fff;
+            font-weight: bolder;
+        }
+
+        #divEvent
+        {
+            width: 200px; height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 1.2em;
+            background-color: green;
+            color: #fff;
+            font-weight: bolder;
+        }
+    </style>
+
+    <script>
+        // onload를 하게 되면 body가 만들어지고 마지막에 실행되기 때문에 안됨 !! window.onload삭제 ~ 
+        // inline은 onclick= "콜백함수"
+    window.onload = function(){
+        var ce = document.getElementById("cEvent");
+        var divCe = document.getElementById("divEvent");
+        // ce.onclick = function(){ //콜백함수 
+        // //document.write('꽝');
+        // ce.style.backgroundColor = "blue";
+        //     } 
+        // ce.ondblclick = function(){
+        //     ce.style.backgroundColor = "red";
+        // }  -> 자바에서는 이렇게 다이렉트로 넣는 것은 조금 별로...
+
+        var changeBlue = function(event){
+            console.log(event);
+            // this : 자바에서 말하는 자기자신이 아니고  ***호출하는 놈 ! = ce(cEvent = body !)*** 자바식으로 이해 절대 금지 ! !
+            // this : 똑같은 function을 다른 객체에 활용할 수 있음 !
+            this.style.backgroundColor = "blue";
+
+            for(var key in event){
+                console.log(key + " : " + event[key]);
+            }
+        }
+
+        var changeRed = function(event){
+            console.log(event); 
+            this.style.backgroundColor = "red"; // ce -> this 
+        }
+
+         // 이벤트를 등록시켜서 작동시키는 아이~
+        ce.addEventListener("click", changeBlue ); //  여기서의 click은 onclick의 click.
+        ce.addEventListener("dblclick", changeRed); // changeRed  : 콜백함수 = 이벤트 핸들러 함수
+       
+        // div
+        var divCe = document.getElementById("divEvent");
+        divCe.addEventListener("click", changeBlue);
+        divCe.addEventListener("dblclick", changeRed);
+
+    }
+    </script>
+</head>
+<body>
+    <div id = "cEvent">이벤트 클릭</div> 
+    <div id = "divEvent">DIV 클릭</div>
+    
+</body>
+</html>

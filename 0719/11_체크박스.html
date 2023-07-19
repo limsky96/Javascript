@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>전체선택<input type="checkbox" id="selectAll" onchange="checkboxes()"> <br></label>
+    <label><input type="checkbox" name="boxName" value="java"> java <br></label>
+    <label><input type="checkbox" name="boxName" value="sql"> sql <br></label>
+    <label><input type="checkbox" name="boxName" value="angular"> angular <br></label>
+
+    <script>
+        function byClass(className) {
+            return document.getElementsByClassName(className);
+        }
+
+        function byName(name) {
+            return document.getElementsByName(name);
+        }
+
+        function checkboxes() {
+            const allCheckbox = document.getElementById("selectAll");
+            const checkbox = byName("boxName");
+
+            if (allCheckbox.checked) {
+                // 모든 체크박스를 선택
+                for (let i = 0; i < checkbox.length; i++) {
+                    checkbox[i].checked = true;
+                }
+            } else {
+                // 모든 체크박스를 해제
+                for (let i = 0; i < checkbox.length; i++) {
+                    checkbox[i].checked = false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

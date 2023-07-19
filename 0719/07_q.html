@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ascii() {
+
+        const input = document.getElementById('inputText').value;
+
+        if (input.length !== 1) {
+            document.getElementById('output');
+            return;
+        }
+        
+        const asciiCode = input.charCodeAt(0); // ascii 변환 
+        document.getElementById('output').textContent = asciiCode;
+        }
+
+        ascii();
+    </script>
+
+    <style>
+       
+        #inputText {
+            border: 2px solid blue;
+        }
+        #container {
+            display : flex;
+       
+        }
+      
+    </style>
+
+<!-- 
+    <script> // 강사 
+        window.onload = function(){
+            function inputHandler(event){
+                console.log(event.key); // A
+                console.log(event.keyCode); // A -> 65 
+
+                document.getElementById('result').innerText = event.key.charCodeAt;
+            }
+            var input = document.getElementById("input_char");
+            input.addEventListener("keydown", inputHandler);
+
+        }
+    </script> -->
+
+</head>
+<body>
+
+    <input type="text" id="inputText" oninput="ascii()">
+    <div id="output"></div>
+
+
+     <!-- //강사 
+    <input id="input_char" type="text">
+    <span id="result">65</span> -->
+    
+</body>
+</html>
