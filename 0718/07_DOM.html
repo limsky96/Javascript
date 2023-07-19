@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script> // DOM : 웹문서(태그)와 관련된 객체 
+
+    window.onload = function(){ // window.load : 전체를 읽는 ..
+        var tag = document.createElement("p");
+        var text = document.createTextNode("자바 스크립트"); // textnode : p태그 안에 스트링 넣는게 아니고,  태그 안에 들어가는 텍스트 !
+
+        tag.appendChild(text); // <p>자바스크립트</p>를 소스코딩으로 만듬 
+        document.body.appendChild(tag); // 자식으로 tag를 집어넣어라~
+
+        // 텍스트 노드 외 노드 이용
+        // 객체 생성 
+        var imgNode = document.createElement("img");
+        imgNode.setAttribute("src","logo.png");
+        imgNode.setAttribute("width", 170);
+        imgNode.setAttribute("height", 67);
+        imgNode.setAttribute("tempData", "logoImg");
+
+        document.body.appendChild(imgNode); // 노드 연결 
+    }
+    </script>
+</head> 
+
+<body>
+    
+</body>
+</html>

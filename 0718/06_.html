@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var newWindow = window.open("http://www.google.com", "openWindow", "width=500, height=300"); // 윈도우 창 여는 함수 
+
+        //위치 조정
+         newWindow.moveTo(50, 50);
+            for(var i=0; i<1000; i++) {
+                newWindow.moveBy(1, 1);
+         }
+         
+         //사이즈 조정
+         newWindow.resizeTo(500, 600);
+            for(var i=0; i<200; i++) {
+                newWindow.resizeBy(-1, -1);
+         }
+
+
+       //onload:전체를 한 후 제일 마지막에 실행 //안에는 콜백 함수가 들어감
+         window.onload = function(){
+        console.log("제일마지막!")
+        }
+
+        
+        //Screen객체
+         function openWin(url, width, height) {
+         
+         console.log("screen.width : " + screen.width);
+         console.log("screen.height : " + screen.height);
+         
+         var left = screen.width/2 - width/2;
+         var top = screen.height/2 - height/2;
+         var opt = "width = " + width + ", height = " + height + ", left = " + left + ", top = " + top;
+         
+         open(url, "newWin", opt);
+            
+         }
+      
+        openWin("https://yahoo.com", 800, 500);
+
+        // location 객체
+        window.onload = function(){
+
+            location.href = "http:///www.yahoo.com";
+
+            //location.assign("http://www.naver.com");
+            //history를 남기지 않음. 뒤로가기 안 됨.
+            location.replace("http://www.naver.com");
+            
+            
+            /*
+            setTimeout(function() {
+               console.log("Location.reload!");
+               location.reload();
+            }, 3000);
+            */
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

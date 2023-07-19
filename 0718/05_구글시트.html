@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    function Circle(radius) {
+        this.radius = radius;
+
+        this.getArea = function() {
+            var area = Math.PI * Math.pow(this.radius, 2); // Math.pow : 거듭제곱값 반환 (this.radius)를 2번 !
+            return "반지름 " + this.radius + "의 넓이는 " + area.toFixed(4) + "입니다."; // 소수점 4째자리까지 toFixed~  
+        };
+        }
+
+        var circle = new Circle(10);
+        document.write(circle.getArea());
+
+
+    // 면접족보 
+    function number() {
+        var number = 1;
+        var intervalId = setInterval(function() {
+            console.log(number);
+            number++;
+            if (number > 10) {
+            clearInterval(intervalId);
+            console.log("프로그램 완료");
+            }
+        }, 1000);
+    }
+
+    number();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
