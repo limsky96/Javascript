@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
+
+    <script>
+        $("<div> 안녕하세요!! </div> "); // 객체 생성
+
+        $(document).ready(function() {
+
+            var wrapObj = $("#wrap");
+
+            // 객체 생성
+
+            var divObj = $("<div> 안녕하세용 </div>");
+            divObj.appendTo(wrapObj);
+            divObj.css("background", "#ff0000");
+
+            // 위 문장을 한 줄로 표현하면 
+            // $("<div> hello jQuery </div>").appendTO($("#wrap")).css("background", "#ff0000");
+
+            // <a> 객체 생성 및 추가
+            var aObj = $("<a href='http://www.google.com' target='_blank'> google </a><br>");
+                aObj.appendTo(wrapObj);
+
+            var imgObj = $("<img src='logo.png'/><br>");
+                imgObj.appendTo(wrapObj);
+
+
+            // 객체 생성
+            var divObj = $("<div> 안녕하셍용 </div>")
+
+            // divObj.appendTo(wrapObj); // appendTo (부모)
+            // wrapObj.append(divObj); //부모.append (자식)
+            // divObj.prependTo(wrapObj); // 제일 처음 위치에 집어 넣음
+            // wrapObj.prepend(divObj);
+
+            divObj.insertAfter(wrapObj);
+            wrapObj.after(divObj);
+            divObj.insertBefore(wrapObj); // 랩 위에 부모 바로 위
+            wrapObj.
+            }); 
+    </script>
+</head>
+<body>
+    <div id = "wrap">
+        <div>contents</div>
+        <div>contents</div>
+
+    </div>
+</body>
+</html>

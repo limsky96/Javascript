@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
+
+    <script>
+        $(document).ready(function() {
+            function total() {
+                var price = $("#price").val();
+                var quantity = $("#quantity").val();
+
+                var totalPrice = Number(price) * Number(quantity);
+                $("#total").text(totalPrice);
+            }
+
+            $("#price, #quantity").on("input", total);
+            total();
+        });
+    </script>
+
+</head>
+<body>
+    <h1>2. 총합구하기</h1>
+    가격<input type="number" id="price" value=""> x
+    수량<input type="number" id="quantity" value="">
+    <strong>총합:</strong> <span id="total" valuse=""></span>
+</body>
+</html>

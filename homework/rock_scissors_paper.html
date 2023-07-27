@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="site.html">게임사이트</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="lotto.html">로또</a></li>
+                        <li class="nav-item"><a class="nav-link" href="rock_scissors_paper.html">가위바위보</a></li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 가위바위보 -->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <img id="rsp-img-your" src="base.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">당신</h5>
+                            <!-- 각 가위, 바위, 보 버튼에 class 추가하여 클릭 이벤트 연결 -->
+                            <button class="btn btn-warning m-2 your-rsp" data-rsp="가위">가위</button>
+                            <button class="btn btn-warning m-2 your-rsp" data-rsp="바위">바위</button>
+                            <button class="btn btn-warning m-2 your-rsp" data-rsp="보">보</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <img src="base.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">결과</h5>
+                            <p id="rsp-result">버튼을 눌러주세요</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <img id="rsp-img-computer" src="base.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">컴퓨터</h5>
+                            <button id="rsp-btn-computer" class="btn btn-warning m-2">가위</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>      
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            function ComputerRspPlayer(yourRsp){
+                this.rsp = ['가위', '바위', '보'];
+                this.img = ['mook.jpeg', 'jji.jpeg', 'bba.jpeg'];
+
+                console.log(Math.floor(Math.random() * 3));
+                this.computerRsp = this.rsp[Math.floor(Math.random() * 3)];
+                this.getResult = function() {
+                    console.log(this.computerRsp + "::::" + yourRsp);
+                    let result = "비겼습니다.";
+                    if(this.computerRsp == yourRsp )
+                        return result;
+
+                    if(this.computerRsp == "가위"){
+            
+                        if(yourRsp == "바위")
+                            result = "당신이 이겼습니다.";
+                        else if(yourRsp == "보")
+                            result = "당신이 졌습니다";
+                           
+                    }else if(this.computerRsp == "바위"){
+
+                        if(yourRsp == "보")
+                            result = "당신이 이겼습니다.";
+                        else if(yourRsp == "가위")
+                            result = "당신이 졌습니다";
+
+                    }else if(this.computerRsp == "보"){
+
+                        if(yourRsp == "가위")
+                            result = "당신이 이겼습니다.";
+                        else if(yourRsp == "바위")
+                            result = "당신이 졌습니다";
+                    }
+                    return result;                  
+                }
+            };
+
+            $(".your-rsp").each(function(index, item) {
+                $(this).click(() => {
+                    let rspPlayer = new ComputerRspPlayer($(this).data("rsp"));
+                    let result = rspPlayer.getResult();
+
+                    $("#rsp-result").text(result);
+                    $("#rsp-img-your").attr("src", "./" + rspPlayer.img[$(this).data("rsp") == "가위" ? 1 : $(this).data("rsp") == "바위" ? 0 : 2]);
+                    $("#rsp-img-computer").attr("src", "./" + rspPlayer.img[rspPlayer.computerRsp == "가위" ? 1 : rspPlayer.computerRsp == "바위" ? 0 : 2]);
+                    $("#rsp-btn-computer").text(rspPlayer.computerRsp);
+                });
+            });
+        }); 
+    </script>
+
+    <footer class="fixed-bottom">
+        <nav class="text-center">
+            <hr />
+            <p>&copy; 2023 IT 2기 임하늘 </p>
+        </nav>
+    </footer>
+</body>
+
+</html>

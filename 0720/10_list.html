@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
+    <script>
+        $(document).ready(function() {
+
+
+            var wordsList = [];
+
+            $("#add").click(function() {
+                var word = $("#words").val();
+                if (word.trim() !== '') {
+                    var listItem = "<li>" + word + "</li>";
+                    $("#uList").append(listItem);
+                    $("#words").val('').focus();
+                    console.log($("#uList").text());
+                    wordsList.push(word);
+                    console.log(listItem); 
+                    console.log(wordsList);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="words">
+    <button type="button" id="add">추가</button>
+    <br>
+    <ul id="uList"></ul>
+</body>
+</html>

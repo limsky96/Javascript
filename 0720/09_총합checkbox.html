@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
+
+    <script>
+        $(document).ready(function() {
+            $("#total").on("click", function() {
+                var total = 0;
+
+                $("input[type='checkbox']:checked").each(function() {
+                    var itemName = $(this).attr("name");
+                    var itemPrice = parseInt($(this).val());
+
+                    total += itemPrice;
+                });
+
+                $("#total_price").text(total);
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <h1>3. 총합 구하기2 (선택된 값만)</h1>
+    바나나(1000원)<label><input type="checkbox" name="바나나" value="1500"></label><br>
+    사과(500원)<label><input type="checkbox" name="사과" value="1000"></label><br>
+    배(1500원)<label><input type="checkbox" name="배" value="1500"></label><br>
+    <button id="total">총합구하기</button><br>
+    <strong>선택한 총 가격:</strong> <span id="total_price"></span>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> 
+    
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function(){
+                var n1 = $("#n1").val();
+                var n2 = $("#n2").val();
+
+                var result = Number(n1) + Number(n2);
+                $("#result").val(result);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1> 1. +연산</h1>
+    <input type="number" id="n1" value=""> +
+    <input type="number" id="n2" value=""> =
+    <input type="text" id="result" value="">
+    <button id="btn">연산</button><br>
+</body>
+</html>

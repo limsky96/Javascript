@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#add").click(function(){
+                var text = $("#words").val();
+
+                    if(text == "")
+                    return;
+
+                var list = $("<li></li>"); // "<li class ='클래스명'></li>" 으로 줘도댐
+                list.text(text); // text(text + "X");
+
+                // X 
+                var deleteBtn = $("<span class='delete-btn'> X</span>");
+                deleteBtn.click(function(){
+                    list.remove();
+                });
+
+                list.append(deleteBtn);
+
+                $("#uList").append(list);
+                $("#words").val(''); // 입력값 빈 문자열로 
+
+            });
+
+            // 리스트로 만든 부모요소 delete
+            $(document).on("click", ".delete-btn", function(){
+                $(this).remove();
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="words">
+    <button type="button" id="add" >추가</button><br>
+    <ui id="uList"></ui>
+    <br>
+</body>
+</html>
